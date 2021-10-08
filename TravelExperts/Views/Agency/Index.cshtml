@@ -1,0 +1,47 @@
+﻿@model List<Agency>
+@{
+    ViewData["Title"] = "Agency list";
+}
+
+<div class="card-deck">
+    @foreach (var agency in Model)
+    {
+    <div class="card">
+
+        @if (agency.AgencyId == 2)
+        {
+            <img class="card-img-top" src="~/images/okotoks.jpg" alt="Card image cap">
+        }
+        else if (agency.AgencyId == 1)
+        {
+            <img class="card-img-top" src="~/images/calgary.jpg" alt="Card image cap">
+        }
+
+        <div class="card-body" style="text-align:center">
+
+            <h5 class="card-title">@agency.AgncyCity</h5>
+            <p class="card-text">
+
+                <i class="fa fa-map-marker" style="font-size:15px"></i>
+                @agency.AgncyAddress, @agency.AgncyPostal,
+                <br />
+
+                @agency.AgncyCity, @agency.AgncyProv,
+                <br />
+
+                @agency.AgncyCountry
+                <br />
+
+                <i class="fa fa-phone" style="font-size:19px"></i>
+                &nbsp; @agency.AgncyPhone
+                <br />
+
+                <i class="fa fa-fax" style="font-size:18px"></i>
+                &nbsp; @agency.AgncyFax
+            </p>
+        </div>
+    </div>
+    }
+
+</div>
+

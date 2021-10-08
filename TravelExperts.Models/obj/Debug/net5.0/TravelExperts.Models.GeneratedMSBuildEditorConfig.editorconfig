@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = TravelExperts.Models
-build_property.ProjectDir = C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\
+build_property.ProjectDir = C:\Source_REPOS\TravelExperts_PROJECT_Updated\TravelExperts.Models\

@@ -1,0 +1,31 @@
+﻿@model List<Package>
+@{
+    ViewData["Title"] = "Package list";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Package list</h1>
+
+    @foreach (var package in Model)
+    {
+        <div class="card mb-4">
+            <a asp-controller="Package"
+               asp-action="Details"
+               asp-route-id="@package.PackageId">
+                <img src="./images/@package.image" class="img-fluid center-block" style="width: fit-content; padding: 10px 150px 0px 150px ; border-radius: 20px 20px 20px 20px" alt="...">
+            </a>
+                <div class="card-body">
+                    <h5 class="btn btn-primary">
+                        <a asp-controller="Package"
+                           asp-action="Details"
+                           asp-route-id="@package.PackageId" style="color: white; text-decoration: none;">
+                            @package.PkgName
+                        </a>
+                    </h5>
+                    <p class="card-text">Start Date: @package.PkgStartDate </p>
+                    <p class="card-text"><small class="text-muted">Price @package.PkgBasePrice</small></p>
+                </div>
+</div>
+    }
+</div>
+

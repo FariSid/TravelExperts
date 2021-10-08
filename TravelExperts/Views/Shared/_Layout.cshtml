@@ -1,0 +1,136 @@
+﻿@{
+    // get cart from session
+    var cart = new Cart(Context);
+
+    // use current controller or area to determine if tab is active
+    var current = ViewContext.RouteData.Values["area"]?.ToString() ??
+        ViewContext.RouteData.Values["controller"]?.ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TravelExperts</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item @Nav.Active("Home", current)">
+                        <a class="nav-link" asp-action="Index" asp-controller="Home" asp-area="">
+                            <span class="fa fa-home"></span>&nbsp;Home
+                        </a>
+                    </li>
+                    <li class="nav-item @Nav.Active("Package", current)">
+                        <a class="nav-link" asp-action="Index" asp-controller="Package" asp-area="">
+                            <span class="fa fa-book"></span>&nbsp;Packages
+                        </a>
+                    </li>
+                    <li class="nav-item @Nav.Active("Agent", current)">
+                        <a class="nav-link" asp-action="Index" asp-controller="Agent" asp-area="">
+                            <span class="fa fa-user"></span>&nbsp;Find an Agent
+                        </a>
+                    </li>
+                    <li class="nav-item @Nav.Active("Agency", current)">
+                        <a class="nav-link" asp-action="Index" asp-controller="Agency" asp-area="">
+                            <span class="fa fa-phone"></span>&nbsp;Contact Us
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item @Nav.Active("Cart", current)">
+                        <a class="nav-link" asp-action="Index" asp-controller="Cart" asp-area="">
+                            <span class="fa fa-shopping-cart"></span>&nbsp;Cart
+                            <span class="badge badge-light">@cart.Count</span>
+                        </a>
+                    </li>
+
+                    <!-- Login buttons and links -->
+                    @using Microsoft.AspNetCore.Identity
+                    @inject SignInManager<User> signInManager
+
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        // signed-in user - Log Out button and username
+                        <li class="nav-item">
+                            <form method="post" asp-action="LogOut" asp-controller="Account"
+                                  asp-area="">
+                                <input type="submit" value="Log Out"
+                                       class="btn btn-outline-light" />
+                                <span class="text-light">@User.Identity.Name</span>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        var action = ViewContext.RouteData.Values["action"]?.ToString();
+
+                        // anonymous user - Register link and Log In button
+                        <li class="nav-item @Nav.Active("Register", action)">
+                            <a asp-action="Register" asp-controller="Account"
+                               asp-area="" class="nav-link">
+                                <span class="fa fa-edit"></span>&nbsp;Register
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Login" asp-controller="Account"
+                               asp-area="" class="btn btn-outline-light">Log In</a>
+                        </li>
+                    }
+
+                    <li class="nav-item @Nav.Active("Admin", current)">
+                        <a class="nav-link" asp-action="Index" asp-controller="Package" asp-area="Admin">
+                            <span class="fa fa-cog"></span>&nbsp;Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <header class="text-center">
+            <a asp-action="Index" asp-controller="Home" >
+                <img src="~/images/TravelExperts.png"  style="border-radius: 0px 0px 20px 20px;" />
+            </a>
+        </header>
+
+        <br />
+        <br />
+        <br />
+
+        <div class="container">
+
+            <main>
+                @if (TempData.Keys.Contains("message"))
+                {
+                    <h4 class="bg-info text-center text-white p-2">@TempData["message"]</h4>
+                }
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <footer class="border-top footer text-muted">
+        <div class="container" style="text-align:center">
+            Copyright &copy; @DateTime.Now.Year TravelExperts Inc. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

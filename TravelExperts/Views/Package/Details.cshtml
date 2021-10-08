@@ -1,0 +1,35 @@
+﻿@model Package
+
+@{
+    ViewData["Title"] = " | Package Details";
+}
+
+<h1>Package Details</h1>
+
+<div class="card mb-3">
+    <h1 class="card-title; text-center"> @Model.PkgName </h1>
+    <img src="~/images/@Model.image" class="img-fluid center-block" style="width: fit-content; padding: 10px 100px 0px 100px ; border-radius: 20px 20px 20px 20px" alt="...">
+    <div class="card-body; text-center">
+        <p class="card-text">Start Date: @Model.PkgStartDate End Date: @Model.PkgStartDate</p>
+        <p class="card-text">@Model.PkgDesc </p>
+        <h3 class="card-text"><small class="text-muted">Price: @Model.PkgBasePrice</small></h3>
+    </div>
+</div>
+
+@*        <tr>
+                <td>@Model.PackageId</td>
+                <td>@Model.PkgName  </td>
+                <td>@Model.PkgStartDate</td>
+                <td>@Model.PkgEndDate</td>
+                <td>@Model.PkgDesc</td>
+                <td>@Model.PkgBasePrice</td>
+                <td>@Model.PkgAgencyCommission</td>
+            </tr>
+    </table>*@
+
+<form asp-action="Add" asp-controller="Cart" method="post">
+    <button type="submit" name="id" value="@Model.PackageId"
+            class="btn btn-primary">
+        Add To Cart
+    </button>
+</form>

@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = "_Layout";
+
+    var current = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<ul class="nav nav-tabs mt-2 mb-3">
+    <li class="nav-item">
+        <a asp-action="Index" asp-controller="Package"
+           class="nav-link @TravelExperts.Models.Nav.Active("Package", current)">
+            Manage Packages
+        </a>
+    </li>
+    <li class="nav-item">
+        <a asp-action="Index" asp-controller="Agent"
+           class="nav-link @TravelExperts.Models.Nav.Active("Agent", current)">
+            Manage Agents
+        </a>
+    </li>
+    <li class="nav-item">
+        <a asp-action="Index" asp-controller="Agency"
+           class="nav-link @TravelExperts.Models.Nav.Active("Agencies", current)">
+            Manage Agencies
+        </a>
+    </li>
+    <li class="nav-item">
+        <a asp-action="Index" asp-controller="User"
+           class="nav-link @TravelExperts.Models.Nav.Active("User", current)">
+            Manage Users
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="https://app.powerbi.com/groups/me/reports/6fb95cf6-97d2-4a7b-aca8-f9d9dca8f066"
+           class="nav-link @TravelExperts.Models.Nav.Active("User", current)">
+           Monitor business performance
+        </a>
+    </li>
+</ul>
+
+@RenderBody()
+

@@ -1,0 +1,138 @@
+﻿@model  PackageViewModel
+
+@{
+    // this view is used for add, edit, and delete. 
+    // Which one is determined by the action method name.
+    var action = ViewContext.RouteData.Values["action"].ToString().Capitalize();
+
+    ViewData["Title"] = $" | {action} Package";
+}
+
+<h1>@action Package</h1>
+
+<form asp-action="@action" asp-area="Admin" method="post">
+
+    <input type="hidden" asp-for="Package.PackageId" />
+
+    <div class="form-group row">
+        <div class="col-sm-2"><label>Package Name:</label></div>
+
+        @* if deleting, display title in a label and put value in hidden field
+            for delete message. Otherwise, provide a text box*@
+        @if (Operation.IsDelete(action))
+        {
+            <div class="col-sm-4"><label>@Model.Package.PkgName</label></div>
+            <input type="hidden" asp-for="Package.PkgName" />
+        }
+        else
+        {
+            <div class="col-sm-4">
+                <input type="text" asp-for="Package.PkgName" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Package.PkgName" class="text-danger"></span>
+            </div>
+        }
+    </div>
+
+
+
+    @* if not deleting, display text boxes and drop-downs for rest of fields*@
+    @if (!Operation.IsDelete(action))
+    {
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Start Date:</label></div>
+            <div class="col-sm-4">
+                <input type="text" asp-for="Package.PkgStartDate" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Package.PkgStartDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2"><label>End Date:</label></div>
+            <div class="col-sm-4">
+                <input type="text" asp-for="Package.PkgEndDate" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Package.PkgEndDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Package Description:</label></div>
+            <div class="col-sm-4">
+                <input type="text" asp-for="Package.PkgDesc" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Package.PkgDesc" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Base Price:</label></div>
+            <div class="col-sm-4">
+                <input type="text" asp-for="Package.PkgBasePrice" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Package.PkgBasePrice" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Agency Commision:</label></div>
+            <div class="col-sm-4">
+                <input type="text" asp-for="Package.PkgAgencyCommission" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Package.PkgAgencyCommission" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Pkg Image:</label></div>
+            <div class="col-sm-4">
+                <input type="text" asp-for="Package.image" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Package.image" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*<div class="form-group row">
+                <div class="col-sm-2"><label>Genre:</label></div>
+                <div class="col-sm-4">
+                    <select asp-for="Book.GenreId" class="form-control"
+                        asp-items='@new SelectList(Model.Genres, "GenreId", "Name", Model.Book.GenreId)'>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <span asp-validation-for="Book.GenreId" class="text-danger"></span>
+                </div>
+            </div>*@
+        <div class="form-group row">
+            <div class="col-sm-2">
+                <label>Product(s):</label><br />
+            </div>
+            <div class="col-sm-4">
+                <select asp-for="SelectedProducts" class="form-control"
+                        asp-items='@new MultiSelectList(Model.Products, "ProductId", "ProdName", Model.SelectedProducts)'>
+                </select>
+                (Hold down CTRL or CMD key to select multiple)
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="SelectedProducts" class="text-danger"></span>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-sm-4 offset-sm-2">
+            <button type="submit" class="btn btn-primary">@action</button>
+
+            @* return user to main admin page after add, or to search page otherwise *@
+            <a asp-action="Index"
+               class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

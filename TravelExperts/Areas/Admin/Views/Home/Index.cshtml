@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    
+    <form asp-action="Index" asp-controller="Package" method="get">
+        <button type="submit" name="id" value="@Model.Package.PackageId"
+                class="btn btn-primary">
+            Manage Packages
+        </button>
+    </form>
+</div>

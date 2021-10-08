@@ -1,0 +1,104 @@
+﻿@model Agent
+
+@{
+    ViewData["Title"] = " | Agent Details";
+}
+
+
+<div class="tte-right-side-fixed-page">
+    <div class="tte-image-top"><img src="~/images/bora-bora_mini.jpg"></div>
+    <div class="tte-profile-info">
+        <img src="~/images/@Model.AgtPicture" alt="@Model.AgtFirstName">
+        <h1 class="tte-name">@Model.AgtFirstName @Model.AgtLastName</h1>
+        <h5 class="tte-name">@Model.AgtPosition </h5>
+        <div class="tte-location">
+
+            @if (@Model.AgencyId == 1)
+            {
+                <span> Calgary, AB </span>
+            }
+            else if (@Model.AgencyId == 2)
+            {
+                <span> Okotoks, AB </span>
+            }
+
+        </div>
+
+        <div class="tte-experience"><span>@Model.AgentId+ Years of Experience</span></div>
+        <div class="tte-contact-container">
+            <a href="tel:@Model.AgtBusPhone" class="tte-phone tte-contact-info">
+                <i class="fa fa-phone"></i> <span>  @Model.AgtBusPhone</span>
+            </a>
+            <a href="mailto:@Model.AgtEmail" class="tte-email tte-contact-info">
+                <i class="fa fa-envelope"></i> <span>  @Model.AgtEmail</span>
+            </a>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="tte-agent-title-container">
+        <div>
+            <img src="~/images/Speciality.PNG" />
+        </div>
+
+        <div class="tte-text-content">
+            <div class="tte-archive-title">
+                <h2> Specializes in:</h2>
+            </div>
+
+            <h4>
+                <span class="badge badge-info">All Inclusive</span>
+                <span class="badge badge-info">Cruises</span>
+                <span class="badge badge-info">Family Vacations</span>
+                <span class="badge badge-info">Family Vacations</span>
+                <span class="badge badge-info">Travel Insurance</span>
+                <span class="badge badge-info">Hotels</span>
+                <span class="badge badge-info">Tours</span>
+            </h4>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="tte-agent-title-container">
+        <div>
+            <img src="~/images/Travelled.PNG" />
+        </div>
+
+        <div class="tte-text-content">
+            <div class="tte-archive-title">
+                <h2> Well Travelled in:</h2>
+            </div>
+
+            <h4>
+                <span class="badge badge-info">United States</span>
+                <span class="badge badge-info">Canada</span>
+                <span class="badge badge-info">United Kingdom</span>
+            </h4>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="tte-agent-title-container">
+        <div>
+            <img src="~/images/Language.PNG" />
+        </div>
+
+        <div class="tte-text-content">
+            <div class="tte-archive-title">
+                <h2> Speaks:</h2>
+            </div>
+
+            <h4>
+                <span class="badge badge-info">English</span>
+                <span class="badge badge-info">French</span>
+            </h4>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+</div>
