@@ -1,0 +1,15 @@
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\bin\Debug\net5.0\TravelExperts.Models.deps.json
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\bin\Debug\net5.0\TravelExperts.Models.runtimeconfig.json
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\bin\Debug\net5.0\TravelExperts.Models.runtimeconfig.dev.json
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\bin\Debug\net5.0\TravelExperts.Models.dll
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\bin\Debug\net5.0\ref\TravelExperts.Models.dll
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\bin\Debug\net5.0\TravelExperts.Models.pdb
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.csproj.AssemblyReference.cache
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.AssemblyInfoInputs.cache
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.AssemblyInfo.cs
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.csproj.CoreCompileInputs.cache
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.dll
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\ref\TravelExperts.Models.dll
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.pdb
+C:\Users\esoko\OneDrive\Desktop\SAIT Learning\CPRG-007-004_.NET_Application\New folder\TravelExperts.Models\obj\Debug\net5.0\TravelExperts.Models.genruntimeconfig.cache
